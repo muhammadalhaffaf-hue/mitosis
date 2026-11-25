@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://rtwslv13qqkt"]
+
+[ext_resource type="Script" path="res://Scenes/jebakan_api.gd" id="s_mekanik"]
+[ext_resource type="Texture2D" uid="uid://b8tlnw4i8tqsy" path="res://Assests/Foozle_2DTR0001_Pixel_Trap_Pack/Fire Trap/PNGs/Fire Trap - Level 1.png" id="1_wsp4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjtkc"]
+atlas = ExtResource("1_wsp4r")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgqbq"]
+atlas = ExtResource("1_wsp4r")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slgb8"]
+atlas = ExtResource("1_wsp4r")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8h0u"]
+atlas = ExtResource("1_wsp4r")
+region = Rect2(192, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajqdm"]
+atlas = ExtResource("1_wsp4r")
+region = Rect2(224, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbif5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjtkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgqbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slgb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8h0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajqdm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=397956614]
+script = ExtResource("s_mekanik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2003439767]
+position = Vector2(48.5, 58.5)
+scale = Vector2(4.03125, 2.828125)
+sprite_frames = SubResource("SpriteFrames_kbif5")
+frame_progress = 0.96013397

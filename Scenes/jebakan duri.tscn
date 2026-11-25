@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dg4gs0cys0vs4"]
+
+[ext_resource type="Script" path="res://Scenes/jebakan_duri.gd" id="s_mekanik"]
+[ext_resource type="Texture2D" uid="uid://b1yeljaueu0vh" path="res://Assests/jebakan duri.png" id="1_btqj6"]
+
+[node name="Node2D" type="Node2D" unique_id=519005355]
+script = ExtResource("s_mekanik")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1139042125]
+position = Vector2(15, -1)
+texture = ExtResource("1_btqj6")

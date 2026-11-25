@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dine6wc0sjcsi"]
+
+[ext_resource type="Script" path="res://Scenes/tombol.gd" id="s_mekanik"]
+
+[ext_resource type="Texture2D" uid="uid://c2ug1b3whlt56" path="res://Assests/tombol_lift.png" id="1_pqj8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8muhi"]
+atlas = ExtResource("1_pqj8c")
+region = Rect2(0, 0, 32, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jivqh"]
+atlas = ExtResource("1_pqj8c")
+region = Rect2(32, 0, 32, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbif5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8muhi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jivqh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Node2D" type="Area2D" unique_id=1767253390]
+script = ExtResource("s_mekanik")
+jenis = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1766125007]
+sprite_frames = SubResource("SpriteFrames_kbif5")

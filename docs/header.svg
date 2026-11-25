@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3c3c3c"/>
+      <stop offset="1" stop-color="#1e1e1e"/>
+    </linearGradient>
+    <pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect x="3" y="3" width="34" height="34" rx="7" fill="#8a8a8a" stroke="#f2f2f2" stroke-width="3"/>
+    </pattern>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="2"/>
+    </pattern>
+    <style>
+      .judul{font:900 104px 'Arial Black','Segoe UI Black',Impact,sans-serif;letter-spacing:14px;fill:#fff;stroke:#000;stroke-width:10px;paint-order:stroke}
+      .sub{font:700 24px 'Segoe UI',Verdana,sans-serif;letter-spacing:4px;fill:#ffb84d;opacity:0;animation:muncul 1.2s .6s forwards}
+      .sel{fill:#fff;stroke:#111;stroke-width:5px;transform-box:fill-box;transform-origin:center}
+      .a{animation:a 6s ease-in-out infinite}.b{animation:b 6s ease-in-out infinite}
+      .c{animation:c 6s ease-in-out infinite}.d{animation:d 6s ease-in-out infinite}
+      .mata{fill:#111}
+      @keyframes muncul{to{opacity:1}}
+      @keyframes a{0%,20%{transform:translate(0,0) scale(1)}35%,55%{transform:translate(-44px,0) scale(.72)}70%,88%{transform:translate(-62px,-40px) scale(.52)}100%{transform:translate(0,0) scale(1)}}
+      @keyframes b{0%,20%{transform:translate(0,0) scale(1)}35%,55%{transform:translate(44px,0) scale(.72)}70%,88%{transform:translate(62px,-40px) scale(.52)}100%{transform:translate(0,0) scale(1)}}
+      @keyframes c{0%,20%{transform:translate(0,0) scale(1)}35%,55%{transform:translate(-44px,0) scale(.72)}70%,88%{transform:translate(-62px,40px) scale(.52)}100%{transform:translate(0,0) scale(1)}}
+      @keyframes d{0%,20%{transform:translate(0,0) scale(1)}35%,55%{transform:translate(44px,0) scale(.72)}70%,88%{transform:translate(62px,40px) scale(.52)}100%{transform:translate(0,0) scale(1)}}
+      .kedip{animation:kedip 4s infinite}
+      @keyframes kedip{0%,92%,100%{opacity:1}95%{opacity:0}}
+    </style>
+    <g id="sel">
+      <circle class="sel" cx="0" cy="0" r="46"/>
+      <g class="kedip"><ellipse class="mata" cx="-14" cy="-6" rx="5" ry="9"/><ellipse class="mata" cx="14" cy="-6" rx="5" ry="9"/></g>
+    </g>
+  </defs>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#grid)"/>
+  <rect y="280" width="1200" height="40" fill="url(#tile)"/>
+
+  <g transform="translate(150 150)">
+    <g class="d"><use href="#sel"/></g><g class="c"><use href="#sel"/></g>
+    <g class="b"><use href="#sel"/></g><g class="a"><use href="#sel"/></g>
+  </g>
+  <g transform="translate(1050 150)">
+    <g class="d" style="animation-delay:-3s"><use href="#sel"/></g><g class="c" style="animation-delay:-3s"><use href="#sel"/></g>
+    <g class="b" style="animation-delay:-3s"><use href="#sel"/></g><g class="a" style="animation-delay:-3s"><use href="#sel"/></g>
+  </g>
+
+  <text class="judul" x="600" y="168" text-anchor="middle">MITOSIS</text>
+  <text class="sub" x="600" y="222" text-anchor="middle">LESS IS MORE · MORE IS WORSE</text>
+</svg>

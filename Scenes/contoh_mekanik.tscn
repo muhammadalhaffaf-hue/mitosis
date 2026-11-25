@@ -1,0 +1,227 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_ekebl"]
+[ext_resource type="Texture2D" path="res://Assests/tile.png" id="2_hrvfs"]
+[ext_resource type="Texture2D" path="res://Assests/tile_miring45_kiri.png" id="3_n14wj"]
+[ext_resource type="PackedScene" path="res://Scenes/karakter.tscn" id="4_qjffx"]
+[ext_resource type="Script" path="res://Scenes/karakter.gd" id="5_4rpf7"]
+[ext_resource type="PackedScene" path="res://Scenes/checkpoint.tscn" id="6_sau1e"]
+[ext_resource type="Script" path="res://Scenes/checkpoint.gd" id="7_7nj5o"]
+[ext_resource type="PackedScene" path="res://Scenes/tombol.tscn" id="8_by7aw"]
+[ext_resource type="Script" path="res://Scenes/tombol.gd" id="9_hl6tj"]
+[ext_resource type="PackedScene" path="res://Scenes/gerbang.tscn" id="10_48kg7"]
+[ext_resource type="Script" path="res://Scenes/gerbang.gd" id="11_om8po"]
+[ext_resource type="PackedScene" path="res://Scenes/box.tscn" id="12_8cyiy"]
+[ext_resource type="Script" path="res://Scenes/box.gd" id="13_mqe7r"]
+[ext_resource type="PackedScene" path="res://Scenes/tombol box.tscn" id="14_dof4y"]
+[ext_resource type="PackedScene" path="res://Scenes/platform_tembus.tscn" id="15_f8apk"]
+[ext_resource type="Script" path="res://Scenes/platform_tembus.gd" id="16_kcoym"]
+[ext_resource type="PackedScene" path="res://Scenes/tombol lift.tscn" id="17_o5rah"]
+[ext_resource type="PackedScene" path="res://Scenes/platform_bergerak.tscn" id="18_shr5w"]
+[ext_resource type="Script" path="res://Scenes/platform_bergerak.gd" id="19_sl7g3"]
+[ext_resource type="PackedScene" path="res://Scenes/killzone.tscn" id="20_sgrd2"]
+[ext_resource type="Script" path="res://killzone.gd" id="21_nlak1"]
+[ext_resource type="PackedScene" path="res://Scenes/robot.tscn" id="22_wi2x6"]
+[ext_resource type="Script" path="res://Scenes/robot.gd" id="23_psg2i"]
+[ext_resource type="PackedScene" path="res://Scenes/ujung_zona.tscn" id="24_sh8n4"]
+[ext_resource type="Script" path="res://Scenes/ujung_zona.gd" id="25_5y1dp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2x3ur"]
+texture = ExtResource("2_hrvfs")
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)
+
+[sub_resource type="TileSet" id="TileSet_342vi"]
+tile_size = Vector2i(80, 80)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2x3ur")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o30p5"]
+texture = ExtResource("3_n14wj")
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-40, -40, 40, 40, -40, 40)
+
+[sub_resource type="TileSet" id="TileSet_vy7bw"]
+tile_size = Vector2i(80, 80)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_o30p5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1m7s"]
+size = Vector2(620, 40)
+
+[node name="ContohMekanik" type="Node2D" unique_id=1177928490]
+script = ExtResource("1_ekebl")
+
+[node name="Latar" type="ColorRect" parent="." unique_id=439038962]
+z_index = -10
+offset_left = -1000.0
+offset_top = -2000.0
+offset_right = 9000.0
+offset_bottom = 1000.0
+
+[node name="Dunia" type="TileMapLayer" parent="." unique_id=818164620]
+tile_map_data = PackedByteArray("AAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAAUAAAAAAAAAAAAAAAUAAEAAAAAAAAAAAAUAAIAAAAAAAAAAAAVAAAAAAAAAAAAAAAVAAEAAAAAAAAAAAAVAAIAAAAAAAAAAAAWAAAAAAAAAAAAAAAWAAEAAAAAAAAAAAAWAAIAAAAAAAAAAAAXAAAAAAAAAAAAAAAXAAEAAAAAAAAAAAAXAAIAAAAAAAAAAAAYAAAAAAAAAAAAAAAYAAEAAAAAAAAAAAAYAAIAAAAAAAAAAAAZAAAAAAAAAAAAAAAZAAEAAAAAAAAAAAAZAAIAAAAAAAAAAAAaAAAAAAAAAAAAAAAaAAEAAAAAAAAAAAAaAAIAAAAAAAAAAAAbAAAAAAAAAAAAAAAbAAEAAAAAAAAAAAAbAAIAAAAAAAAAAAAcAAAAAAAAAAAAAAAcAAEAAAAAAAAAAAAcAAIAAAAAAAAAAAAdAAAAAAAAAAAAAAAdAAEAAAAAAAAAAAAdAAIAAAAAAAAAAAAeAAAAAAAAAAAAAAAeAAEAAAAAAAAAAAAeAAIAAAAAAAAAAAAfAAAAAAAAAAAAAAAfAAEAAAAAAAAAAAAfAAIAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAEAAAAAAAAAAAAgAAIAAAAAAAAAAAAhAAAAAAAAAAAAAAAhAAEAAAAAAAAAAAAhAAIAAAAAAAAAAAAiAAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAiAAIAAAAAAAAAAAAjAAAAAAAAAAAAAAAjAAEAAAAAAAAAAAAjAAIAAAAAAAAAAAAkAAAAAAAAAAAAAAAkAAEAAAAAAAAAAAAkAAIAAAAAAAAAAAAlAAAAAAAAAAAAAAAlAAEAAAAAAAAAAAAlAAIAAAAAAAAAAAAmAAAAAAAAAAAAAAAmAAEAAAAAAAAAAAAmAAIAAAAAAAAAAAAnAAAAAAAAAAAAAAAnAAEAAAAAAAAAAAAnAAIAAAAAAAAAAAAoAAAAAAAAAAAAAAAoAAEAAAAAAAAAAAAoAAIAAAAAAAAAAAApAAAAAAAAAAAAAAApAAEAAAAAAAAAAAApAAIAAAAAAAAAAAAqAAAAAAAAAAAAAAAqAAEAAAAAAAAAAAAqAAIAAAAAAAAAAAArAAAAAAAAAAAAAAArAAEAAAAAAAAAAAArAAIAAAAAAAAAAAAsAAAAAAAAAAAAAAAsAAEAAAAAAAAAAAAsAAIAAAAAAAAAAAAtAAAAAAAAAAAAAAAtAAEAAAAAAAAAAAAtAAIAAAAAAAAAAAAuAAAAAAAAAAAAAAAuAAEAAAAAAAAAAAAuAAIAAAAAAAAAAAAvAAAAAAAAAAAAAAAvAAEAAAAAAAAAAAAvAAIAAAAAAAAAAAAwAAAAAAAAAAAAAAAwAAEAAAAAAAAAAAAwAAIAAAAAAAAAAAAxAAAAAAAAAAAAAAAxAAEAAAAAAAAAAAAxAAIAAAAAAAAAAAAyAAAAAAAAAAAAAAAyAAEAAAAAAAAAAAAyAAIAAAAAAAAAAAAzAAAAAAAAAAAAAAAzAAEAAAAAAAAAAAAzAAIAAAAAAAAAAAA0AAAAAAAAAAAAAAA0AAEAAAAAAAAAAAA0AAIAAAAAAAAAAAA1AAAAAAAAAAAAAAA1AAEAAAAAAAAAAAA1AAIAAAAAAAAAAAA2AAAAAAAAAAAAAAA2AAEAAAAAAAAAAAA2AAIAAAAAAAAAAAA3AAAAAAAAAAAAAAA3AAEAAAAAAAAAAAA3AAIAAAAAAAAAAAA4AAAAAAAAAAAAAAA4AAEAAAAAAAAAAAA4AAIAAAAAAAAAAAA5AAAAAAAAAAAAAAA5AAEAAAAAAAAAAAA5AAIAAAAAAAAAAAA6AAAA//////////86AAEA//////////86AAIA//////////87AAAA//////////87AAEA//////////87AAIA//////////88AAAA//////////88AAEA//////////88AAIA//////////89AAAA//////////89AAEA//////////89AAIA//////////8+AAAA//////////8+AAEA//////////8+AAIA//////////8/AAAA//////////8/AAEA//////////8/AAIA//////////9AAAAA//////////9AAAEA//////////9AAAIA//////////9BAAAAAAAAAAAAAABBAAEAAAAAAAAAAABBAAIAAAAAAAAAAABCAAAAAAAAAAAAAABCAAEAAAAAAAAAAABCAAIAAAAAAAAAAABDAAAAAAAAAAAAAABDAAEAAAAAAAAAAABDAAIAAAAAAAAAAABEAAAAAAAAAAAAAABEAAEAAAAAAAAAAABEAAIAAAAAAAAAAABFAAAAAAAAAAAAAABFAAEAAAAAAAAAAABFAAIAAAAAAAAAAABGAAAAAAAAAAAAAABGAAEAAAAAAAAAAABGAAIAAAAAAAAAAABHAAAAAAAAAAAAAABHAAEAAAAAAAAAAABHAAIAAAAAAAAAAABIAAAAAAAAAAAAAABIAAEAAAAAAAAAAABIAAIAAAAAAAAAAABJAAAAAAAAAAAAAABJAAEAAAAAAAAAAABJAAIAAAAAAAAAAABKAAAAAAAAAAAAAABKAAEAAAAAAAAAAABKAAIAAAAAAAAAAABLAAAAAAAAAAAAAABLAAEAAAAAAAAAAABLAAIAAAAAAAAAAABMAAAAAAAAAAAAAABMAAEAAAAAAAAAAABMAAIAAAAAAAAAAABNAAAAAAAAAAAAAABNAAEAAAAAAAAAAABNAAIAAAAAAAAAAABOAAAAAAAAAAAAAABOAAEAAAAAAAAAAABOAAIAAAAAAAAAAABPAAAAAAAAAAAAAABPAAEAAAAAAAAAAABPAAIAAAAAAAAAAABQAAAAAAAAAAAAAABQAAEAAAAAAAAAAABQAAIAAAAAAAAAAABRAAAAAAAAAAAAAABRAAEAAAAAAAAAAABRAAIAAAAAAAAAAABSAAAAAAAAAAAAAABSAAEAAAAAAAAAAABSAAIAAAAAAAAAAABTAAAAAAAAAAAAAABTAAEAAAAAAAAAAABTAAIAAAAAAAAAAABUAAAAAAAAAAAAAABUAAEAAAAAAAAAAABUAAIAAAAAAAAAAABVAAAAAAAAAAAAAABVAAEAAAAAAAAAAABVAAIAAAAAAAAAAABWAAAAAAAAAAAAAABWAAEAAAAAAAAAAABWAAIAAAAAAAAAAABXAAAAAAAAAAAAAABXAAEAAAAAAAAAAABXAAIAAAAAAAAAAABYAAAAAAAAAAAAAABYAAEAAAAAAAAAAABYAAIAAAAAAAAAAABZAAAAAAAAAAAAAABZAAEAAAAAAAAAAABZAAIAAAAAAAAAAABaAAAAAAAAAAAAAABaAAEAAAAAAAAAAABaAAIAAAAAAAAAAAD8//b/AAAAAAAAAAD8//f/AAAAAAAAAAD8//j/AAAAAAAAAAD8//n/AAAAAAAAAAD8//r/AAAAAAAAAAD8//v/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAABaAPb/AAAAAAAAAABaAPf/AAAAAAAAAABaAPj/AAAAAAAAAABaAPn/AAAAAAAAAABaAPr/AAAAAAAAAABaAPv/AAAAAAAAAABaAPz/AAAAAAAAAABaAP3/AAAAAAAAAABaAP7/AAAAAAAAAABaAP//AAAAAAAAAAAzAPv/AAAAAAAAAAAzAPz/AAAAAAAAAAAzAP3/AAAAAAAAAAAzAP7/AAAAAAAAAAAzAP//AAAAAAAAAAA0APv/AAAAAAAAAAA0APz/AAAAAAAAAAA0AP3/AAAAAAAAAAA0AP7/AAAAAAAAAAA0AP//AAAAAAAAAAA1APv/AAAAAAAAAAA1APz/AAAAAAAAAAA1AP3/AAAAAAAAAAA1AP7/AAAAAAAAAAA1AP//AAAAAAAAAAA2APv/AAAAAAAAAAA2APz/AAAAAAAAAAA2AP3/AAAAAAAAAAA2AP7/AAAAAAAAAAA2AP//AAAAAAAAAAA3APv/AAAAAAAAAAA3APz/AAAAAAAAAAA3AP3/AAAAAAAAAAA3AP7/AAAAAAAAAAA3AP//AAAAAAAAAABEAP//AAAAAAAAAABFAP7/AAAAAAAAAABFAP//AAAAAAAAAABGAP7/AAAAAAAAAABGAP//AAAAAAAAAABHAP//AAAAAAAAAABLAP//AAAAAAAAAABTAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_342vi")
+
+[node name="Miring" type="TileMapLayer" parent="." unique_id=822697766]
+tile_map_data = PackedByteArray("AABDAP//AAAAAAAAABBEAP7/AAAAAAAAABBHAP7/AAAAAAAAAABIAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_vy7bw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=86904956]
+position = Vector2(240, -200)
+zoom = Vector2(0.9, 0.9)
+
+[node name="karakter" type="CharacterBody2D" parent="." unique_id=1826290982 instance=ExtResource("4_qjffx")]
+position = Vector2(240, -100)
+collision_mask = 5
+floor_constant_speed = true
+floor_max_angle = 0.82
+floor_snap_length = 20.0
+script = ExtResource("5_4rpf7")
+
+[node name="checkpoint" type="Area2D" parent="." unique_id=781328260 instance=ExtResource("6_sau1e")]
+position = Vector2(560, 0)
+script = ExtResource("7_7nj5o")
+
+[node name="Petunjuk" type="Label" parent="." unique_id=2083351568]
+offset_left = 420.0
+offset_top = -420.0
+offset_right = 420.0
+offset_bottom = -420.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Checkpoint"
+
+[node name="tombol_biasa" type="Area2D" parent="." unique_id=1345629499 instance=ExtResource("8_by7aw")]
+position = Vector2(900, -16)
+scale = Vector2(1.47, 2.72)
+script = ExtResource("9_hl6tj")
+target = Array[NodePath]([NodePath("../gerbang_1")])
+
+[node name="gerbang_1" type="StaticBody2D" parent="." unique_id=5483798 instance=ExtResource("10_48kg7")]
+position = Vector2(1300, -160)
+scale = Vector2(4.53, 6.65)
+script = ExtResource("11_om8po")
+
+[node name="Petunjuk2" type="Label" parent="." unique_id=235489040]
+offset_left = 760.0
+offset_top = -520.0
+offset_right = 760.0
+offset_bottom = -520.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Tombol biasa: tinggalkan 1 klon
+di tombol, gerbang tetap terbuka"
+
+[node name="box" type="CharacterBody2D" parent="." unique_id=1747665023 instance=ExtResource("12_8cyiy")]
+position = Vector2(1750, -82)
+scale = Vector2(2.02, 2.08)
+script = ExtResource("13_mqe7r")
+
+[node name="tombol_box" type="Area2D" parent="." unique_id=466297234 instance=ExtResource("14_dof4y")]
+position = Vector2(2250, -16)
+scale = Vector2(1.96, 2.62)
+script = ExtResource("9_hl6tj")
+jenis = 1
+target = Array[NodePath]([NodePath("../gerbang_2")])
+
+[node name="gerbang_2" type="StaticBody2D" parent="." unique_id=1269649630 instance=ExtResource("10_48kg7")]
+position = Vector2(2600, -160)
+scale = Vector2(4.53, 6.65)
+script = ExtResource("11_om8po")
+
+[node name="Petunjuk3" type="Label" parent="." unique_id=27504286]
+offset_left = 1600.0
+offset_top = -520.0
+offset_right = 1600.0
+offset_bottom = -520.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Box hanya bisa didorong klon besar/sedang.
+Taruh di tombol box."
+
+[node name="platform_tembus" type="StaticBody2D" parent="." unique_id=1308165042 instance=ExtResource("15_f8apk")]
+position = Vector2(3050, -200)
+script = ExtResource("16_kcoym")
+
+[node name="Petunjuk4" type="Label" parent="." unique_id=1877949604]
+offset_left = 2860.0
+offset_top = -520.0
+offset_right = 2860.0
+offset_bottom = -520.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Platform tembus:
+lompat dari bawah, S untuk turun"
+
+[node name="tombol_lift" type="Area2D" parent="." unique_id=1767253390 instance=ExtResource("17_o5rah")]
+position = Vector2(3600, -16)
+scale = Vector2(1.46, 1.74)
+script = ExtResource("9_hl6tj")
+jenis = 2
+target = Array[NodePath]([NodePath("../lift")])
+
+[node name="lift" type="AnimatableBody2D" parent="." unique_id=1776380712 instance=ExtResource("18_shr5w")]
+position = Vector2(3920, -12)
+script = ExtResource("19_sl7g3")
+jarak = Vector2(0, -400)
+
+[node name="Petunjuk5" type="Label" parent="." unique_id=1936586942]
+offset_left = 3460.0
+offset_top = -760.0
+offset_right = 3460.0
+offset_bottom = -760.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Lift naik selama tombol lift ditekan"
+
+[node name="platform_bergerak" type="AnimatableBody2D" parent="." unique_id=667294795 instance=ExtResource("18_shr5w")]
+position = Vector2(4720, -12)
+script = ExtResource("19_sl7g3")
+jarak = Vector2(400, 0)
+
+[node name="killzone" type="Area2D" parent="." unique_id=1124814226 instance=ExtResource("20_sgrd2")]
+position = Vector2(4920, 260)
+script = ExtResource("21_nlak1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1239236125]
+shape = SubResource("RectangleShape2D_l1m7s")
+
+[node name="Petunjuk6" type="Label" parent="." unique_id=1087720039]
+offset_left = 4600.0
+offset_top = -420.0
+offset_right = 4600.0
+offset_bottom = -420.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Platform bergerak sendiri"
+
+[node name="Petunjuk7" type="Label" parent="." unique_id=2103770999]
+offset_left = 5360.0
+offset_top = -500.0
+offset_right = 5360.0
+offset_bottom = -500.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Tanah miring"
+
+[node name="robot" type="CharacterBody2D" parent="." unique_id=1690043442 instance=ExtResource("22_wi2x6")]
+position = Vector2(6300, -60)
+scale = Vector2(1.38, 1.36)
+script = ExtResource("23_psg2i")
+
+[node name="Petunjuk8" type="Label" parent="." unique_id=1068602050]
+offset_left = 6000.0
+offset_top = -460.0
+offset_right = 6000.0
+offset_bottom = -460.0
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Robot: tersentuh = mati.
+Klon besar tekan E untuk menahan"
+
+[node name="ujung_zona" type="Area2D" parent="." unique_id=939471256 instance=ExtResource("24_sh8n4")]
+position = Vector2(6960, 0)
+script = ExtResource("25_5y1dp")

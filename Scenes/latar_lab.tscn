@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scenes/latar_lab.gd" id="1_latar"]
+
+[node name="LatarLab" type="Node2D"]
+script = ExtResource("1_latar")

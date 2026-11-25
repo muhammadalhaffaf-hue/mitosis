@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://pdcoytahkv4x"]
+
+[ext_resource type="Script" path="res://Scenes/jebakan_panah.gd" id="s_mekanik"]
+[ext_resource type="Texture2D" uid="uid://di3j6qlh58ci4" path="res://Assests/Foozle_2DTR0001_Pixel_Trap_Pack/Arrow Trap/PNGs/Arrow Trap - Level 1.png" id="1_t3cgn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3cgn"]
+atlas = ExtResource("1_t3cgn")
+region = Rect2(576, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obar6"]
+atlas = ExtResource("1_t3cgn")
+region = Rect2(672, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sglav"]
+atlas = ExtResource("1_t3cgn")
+region = Rect2(768, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lrue"]
+atlas = ExtResource("1_t3cgn")
+region = Rect2(960, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2dab"]
+atlas = ExtResource("1_t3cgn")
+region = Rect2(960, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05mnx"]
+atlas = ExtResource("1_t3cgn")
+region = Rect2(1056, 0, 96, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kbif5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3cgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obar6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sglav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8lrue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2dab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05mnx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=432529424]
+script = ExtResource("s_mekanik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=796698987]
+position = Vector2(173, 82.5)
+scale = Vector2(4.6041665, 6.15625)
+sprite_frames = SubResource("SpriteFrames_kbif5")
+frame_progress = 0.33938837

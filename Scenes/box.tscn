@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bi3q0ikbmnnyk"]
+
+[ext_resource type="Script" path="res://Scenes/box.gd" id="s_mekanik"]
+
+[ext_resource type="Texture2D" uid="uid://b20g7ucro2wyy" path="res://Assests/balok.png" id="1_xkb4e"]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1747665023]
+script = ExtResource("s_mekanik")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=828296301]
+z_index = 2
+texture = ExtResource("1_xkb4e")

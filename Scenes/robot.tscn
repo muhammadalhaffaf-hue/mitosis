@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dmd0ikn4wec8f"]
+
+[ext_resource type="Script" path="res://Scenes/robot.gd" id="s_mekanik"]
+[ext_resource type="Texture2D" path="res://Assests/robot_anjing.png" id="1_anjing"]
+
+[sub_resource type="AtlasTexture" id="f0"]
+atlas = ExtResource("1_anjing")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f1"]
+atlas = ExtResource("1_anjing")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f2"]
+atlas = ExtResource("1_anjing")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f3"]
+atlas = ExtResource("1_anjing")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f4"]
+atlas = ExtResource("1_anjing")
+region = Rect2(288, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f5"]
+atlas = ExtResource("1_anjing")
+region = Rect2(360, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f6"]
+atlas = ExtResource("1_anjing")
+region = Rect2(432, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f7"]
+atlas = ExtResource("1_anjing")
+region = Rect2(504, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f8"]
+atlas = ExtResource("1_anjing")
+region = Rect2(576, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f9"]
+atlas = ExtResource("1_anjing")
+region = Rect2(648, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f10"]
+atlas = ExtResource("1_anjing")
+region = Rect2(720, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f11"]
+atlas = ExtResource("1_anjing")
+region = Rect2(792, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="f12"]
+atlas = ExtResource("1_anjing")
+region = Rect2(864, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="frames_anjing"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("f6")
+}],
+"loop": true,
+"name": &"lari",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("f8")
+}, {
+"duration": 1.0,
+"texture": SubResource("f9")
+}, {
+"duration": 1.0,
+"texture": SubResource("f10")
+}, {
+"duration": 1.0,
+"texture": SubResource("f11")
+}, {
+"duration": 1.0,
+"texture": SubResource("f12")
+}],
+"loop": true,
+"name": &"takut",
+"speed": 8.0
+}]
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1690043442]
+script = ExtResource("s_mekanik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=212617102]
+position = Vector2(0, -29)
+scale = Vector2(1.6, 1.6)
+sprite_frames = SubResource("frames_anjing")
+animation = &"lari"

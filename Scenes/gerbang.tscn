@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://do4spcpmi6uf7"]
+
+[ext_resource type="Script" path="res://Scenes/gerbang.gd" id="s_mekanik"]
+
+[ext_resource type="Texture2D" path="res://Assests/pintu_lab.png" id="1_6uhu8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbif5"]
+size = Vector2(16, 48)
+
+[node name="Node2D" type="StaticBody2D" unique_id=5483798]
+script = ExtResource("s_mekanik")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=696240024]
+texture = ExtResource("1_6uhu8")
+hframes = 12
+frame = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128137801]
+shape = SubResource("RectangleShape2D_kbif5")
